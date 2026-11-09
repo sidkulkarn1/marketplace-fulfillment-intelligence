@@ -1,0 +1,2 @@
+total_orders,delivered_orders,canceled_orders,unavailable_orders,cancellation_rate_pct,processing_eligible_orders,avg_processing_hours,p90_processing_hours,transit_eligible_orders,avg_transit_hours,delivery_eligible_orders,late_orders,late_delivery_rate_pct
+99441,96478,625,609,0.63,95112,68.48,144.5,96446,224.0,96470,6534,6.77

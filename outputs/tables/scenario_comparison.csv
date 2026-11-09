@@ -1,0 +1,4 @@
+scenario_id,initiative,target_merchants,merchants_in_scope,late_reduction_pct,processing_reduction_pct,baseline_eligible_deliveries,baseline_late_orders,baseline_late_rate_pct,modeled_late_orders_avoided,modeled_remaining_late_orders,modeled_late_rate_pct,baseline_processing_orders,baseline_processing_hours,modeled_processing_hours_saved
+focused_10,Focused Merchant Outreach,10,10,10.0,5.0,13102,1019,7.78,102,917,7.0,12925,925755.16,46287.76
+targeted_25,Targeted Performance Improvement,25,25,20.0,10.0,21843,1790,8.19,358,1432,6.56,21539,1545488.29,154548.83
+expanded_50,Expanded Merchant Improvement,50,50,30.0,15.0,30326,2481,8.18,744,1737,5.73,29963,2149795.76,322469.36

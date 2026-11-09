@@ -1,0 +1,6 @@
+processing_band,delivered_orders,delivery_eligible_orders,late_deliveries,late_delivery_rate_pct,avg_processing_hours
+168_plus_hours,6555,6555,1398,21.33,294.19
+24_to_72_hours,36976,36972,2106,5.7,44.06
+72_to_168_hours,23786,23783,1931,8.12,107.4
+invalid_or_missing,1366,1365,25,1.83,
+under_24_hours,27795,27795,1074,3.86,14.43
