@@ -1,9 +1,4 @@
--- Project 3: Root-Cause & Pareto Analysis
--- Descriptive associations, not causal attribution.
-
--- ================================================
 -- VIEW 1: Merchant Late-Delivery Pareto
--- ================================================
 
 CREATE OR REPLACE VIEW analytics.merchant_late_pareto AS
 SELECT

@@ -1,8 +1,3 @@
-
--- Project 3: Merchant Performance Analysis
--- Single-seller orders only for attribution clarity.
-
--- VIEW 1: Single-seller orders
 CREATE OR REPLACE VIEW analytics.merchant_single_seller_orders AS
 WITH seller_counts AS (
     SELECT

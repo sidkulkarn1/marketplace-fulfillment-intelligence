@@ -1,8 +1,3 @@
--- =====================================================
--- PROJECT 3: MARKETPLACE OPERATIONS & FULFILLMENT
--- SQL 07: EXCEL REPORTING & DATA EXPORT
--- =====================================================
-
 CREATE SCHEMA IF NOT EXISTS reporting;
 
 -- 1. Executive KPI Dashboard

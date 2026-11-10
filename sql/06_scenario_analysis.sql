@@ -1,9 +1,4 @@
--- Project 3: Operational Scenario Analysis
--- Results are hypothetical, not causal estimates.
-
--- ================================================
 -- VIEW 1: Scenario Assumptions
--- ================================================
 
 CREATE OR REPLACE VIEW analytics.scenario_assumptions AS
 SELECT *
