@@ -8,3 +8,6 @@ data/processed/*
 !data/processed/.gitkeep
 *.duckdb
 *.duckdb.wal
+
+# Microsoft Office temporary lock files
+~$*
