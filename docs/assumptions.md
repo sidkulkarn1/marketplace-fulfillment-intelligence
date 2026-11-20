@@ -1,5 +1,7 @@
 # Assumptions & Limitations
 
+**Project:** [Marketplace Fulfillment Intelligence](../README.md)
+
 ## Historical measurement rules
 
 - Preserve source records in the `raw` schema; exclude invalid observations only from the affected metric.

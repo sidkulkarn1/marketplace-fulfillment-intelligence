@@ -1,5 +1,7 @@
 # KPI Dictionary
 
+**Project:** [Marketplace Fulfillment Intelligence](../README.md)
+
 Definitions below follow [SQL 03](../sql/03_fulfillment_kpis.sql), [SQL 04](../sql/04_merchant_performance.sql), [SQL 05](../sql/05_root_cause_pareto.sql), and [SQL 06](../sql/06_scenario_analysis.sql). Percent fields use a 0–100 scale; duration fields use hours. Displayed summary values are generally rounded to two decimal places.
 
 ## Marketplace fulfillment

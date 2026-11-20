@@ -6,7 +6,7 @@ An end-to-end analysis of **99,441 historical Olist orders**, connecting fulfill
 
 **Business question:** Where should a marketplace operations team investigate delivery delays, and which merchant interventions should it test before scaling?
 
-[Executive summary](docs/executive_summary.md) · [Excel workbook](excel/Marketplace_Fulfillment_Intelligence.xlsx) · [SQL analysis](sql/) · [Reporting exports](outputs/tables/)
+[Executive summary](docs/executive_summary.md) · [Methodology and reproduction](docs/methodology.md) · [Excel workbook](excel/Marketplace_Fulfillment_Intelligence.xlsx) · [SQL analysis](sql/) · [Reporting exports](outputs/tables/)
 
 ## Business Problem
 
@@ -34,63 +34,18 @@ The pilot would test whether targeted merchant support improves delivery reliabi
 The workflow moves from a business question to validated historical reporting, then to explicit what-if assumptions and a proposed controlled pilot. Solid arrows show the analytical workflow; dashed arrows show assumptions and a **proposed future feedback loop**, not an implemented production integration.
 
 ```mermaid
-flowchart TB
-    B["BUSINESS PROBLEM<br/>Improve delivery reliability;<br/>prioritize merchant interventions"]
-    S["OLIST: 9 CSV SOURCE TABLES<br/>Orders · Order items · Customers · Sellers<br/>Products · Reviews · Payments<br/>Geolocation · Category translation"]
-
-    subgraph D["DUCKDB SQL | Historical evidence and scenario modeling"]
-        direction TB
-        I["01 · Ingestion<br/>Load source CSVs into raw tables"]
-        Q["02 · Quality audits<br/>Keys, relationships, timestamps<br/>and measurement eligibility"]
-        K["03 · Fulfillment KPIs<br/>Order-level reliability and processing metrics"]
-        M["04 · Merchant performance<br/>Single-seller attribution<br/>and qualifying merchant prioritization"]
-        R["05 · Diagnostics<br/>Pareto · Regional · Category · Processing<br/>DESCRIPTIVE ASSOCIATIONS, NOT CAUSATION"]
-        H["06 · Hypothetical scenarios<br/>10 / 25 / 50 merchants<br/>MODELED WHAT-IF OUTCOMES"]
-        V["07 · Reporting views<br/>Eight Excel-ready datasets"]
-        I --> Q --> K --> M --> R --> H
-        K --> V
-        M --> V
-        R --> V
-        H --> V
-    end
-
-    A["EXPLICIT ASSUMPTIONS<br/>Intervention effectiveness and scope;<br/>Excel implementation costs<br/>Not realized benefits or verified savings"]
-    C["8 EXPORTED CSVs<br/>Executive KPIs · Monthly fulfillment<br/>Merchant scorecard · Merchant Pareto<br/>Regional · Category · Processing bands<br/>Scenario comparison"]
-    E["EXCEL<br/>Power Query / CSV import<br/>Dashboard tables, charts, and editable models"]
-
-    subgraph W["FIVE BUSINESS-FACING DASHBOARDS"]
-        direction LR
-        D1["1 · Executive<br/>Dashboard"]
-        D2["2 · Merchant<br/>Performance"]
-        D3["3 · Root Cause<br/>& Pareto"]
-        D4["4 · Scenario<br/>Analysis"]
-        D5["5 · Implementation<br/>Scorecard"]
-    end
-
-    F["FINDINGS & DECISION<br/>Historical exposure identifies investigation priorities;<br/>modeled trade-offs inform pilot selection"]
-    P["PROPOSED CONTROLLED MERCHANT PILOT<br/>Start with 10 priority merchants<br/>Compare with comparable control merchants<br/>Track reliability, processing, costs, participation,<br/>and cancellation guardrails"]
-    L["PROPOSED FEEDBACK LOOP<br/>Evaluate measured outcomes;<br/>revise assumptions and priorities;<br/>decide whether to stop, refine, or scale"]
-
-    B --> S --> I
-    A -.-> H
-    V --> C --> E
-    E --> D1 & D2 & D3 & D4 & D5
-    A -.-> D4
-    A -.-> D5
-    D1 & D2 & D3 & D4 & D5 --> F
-    F --> P --> L
-    L -. "Recalibrate assumptions" .-> A
-    L -. "Refresh investigation priorities" .-> M
-
-    classDef evidence fill:#e8f2ff,stroke:#2563a6,color:#102a43
-    classDef modeled fill:#fff4db,stroke:#b7791f,color:#573b0d
-    classDef decision fill:#e6f4ec,stroke:#28734a,color:#173e2b
-    class B,S,I,Q,K,M,R,V,C,E,D1,D2,D3 evidence
-    class A,H,D4,D5 modeled
-    class F,P,L decision
+flowchart TD
+    A["Nine Olist source tables"] --> B["SQL: quality rules and order-level KPIs"]
+    B --> C["Merchant attribution and descriptive diagnostics"]
+    C --> D["Hypothetical intervention scenarios"]
+    B --> E["Eight CSV exports and five Excel dashboards"]
+    C --> E
+    D --> E
+    E --> F["Recommended controlled merchant pilot"]
+    F -. "Future evidence" .-> D
 ```
 
-**How to read the evidence:** Blue nodes represent historical data and descriptive reporting. Amber nodes contain hypothetical improvements or costs. Green nodes connect findings to a **recommended, not completed**, pilot and learning cycle. The dashboard title “Root Cause & Pareto” describes an investigation tool; the analysis does not establish causal responsibility for delays.
+Historical KPIs and descriptive diagnostics identify investigation priorities. Intervention effectiveness and costs are hypothetical; the controlled pilot is a recommendation. The dashboard title “Root Cause & Pareto” describes an investigation tool and does not establish causal responsibility.
 
 ## Historical Findings
 
@@ -177,7 +132,7 @@ SQL supplies historical baselines and modeled operational outcomes; the Excel im
 - [Processing bands](outputs/tables/processing_bands.csv)
 - [Scenario comparison](outputs/tables/scenario_comparison.csv)
 
-Run SQL scripts 01–07 in numerical order against the same DuckDB database from the repository root, with the nine source files available in `data/raw/`. Script 07 writes to `outputs/tables/`. Import or refresh those CSVs in Excel using Power Query / CSV import, then review dashboard formulas and scenario assumptions. The diagram describes this analytical workflow; it does not imply an automated refresh pipeline.
+The [methodology and reproduction guide](docs/methodology.md) lists source files, DuckDB execution, and Excel refresh checks. Run SQL scripts 01–07 in numerical order against the same DuckDB database from the repository root, with the nine source files available in `data/raw/`. Script 07 writes to `outputs/tables/`. Import or refresh those CSVs in Excel using Power Query / CSV import, then review dashboard formulas and scenario assumptions. The diagram describes this analytical workflow; it does not imply an automated refresh pipeline.
 
 ## Challenges I Addressed
 
@@ -194,7 +149,7 @@ The main analytical challenges were defining reliable measurements and making re
 
 The [data quality audit summary](docs/phase1_audit_summary.md) documents the timestamp, order-grain, and attribution constraints behind these choices.
 
-## What I Would Improve Next Time
+## Opportunities for Improvement
 
 1. **Define the measurement contract earlier.** I would document each KPI's grain, eligibility rules, denominator, and intended decision before building dashboards, then maintain those definitions alongside the SQL.
 2. **Automate validation and refresh checks.** I would add repeatable checks for key uniqueness, join cardinality, timestamp eligibility, and reconciliation between SQL exports and Excel totals, with a visible refresh date and exception log.

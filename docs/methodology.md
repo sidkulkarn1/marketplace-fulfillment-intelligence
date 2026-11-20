@@ -1,5 +1,7 @@
 # Methodology & Reproduction Guide
 
+**Project:** [Marketplace Fulfillment Intelligence](../README.md)
+
 ## Analytical design
 
 The unit of analysis is the order. The workflow preserves raw data, defines eligibility separately for each KPI, uses single-seller orders for merchant attribution, and separates historical observations from hypothetical interventions.

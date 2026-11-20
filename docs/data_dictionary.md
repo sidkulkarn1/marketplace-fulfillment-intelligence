@@ -1,5 +1,7 @@
 # Data Dictionary
 
+**Project:** [Marketplace Fulfillment Intelligence](../README.md)
+
 This is a project-focused dictionary of source tables, join keys, analytical fields, and reporting outputs. It is not an exhaustive description of every unused Olist column. Sources are loaded by [SQL 01](../sql/01_data_ingestion.sql) using DuckDB CSV type inference; types should be checked when replacing source files.
 
 ## Nine source tables
