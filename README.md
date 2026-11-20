@@ -4,6 +4,19 @@
 
 An end-to-end analysis of **99,441 historical Olist orders**, connecting fulfillment measurement, merchant prioritization, diagnostic analysis, and hypothetical intervention planning. The final deliverables include seven SQL scripts, eight reporting CSVs, and five Excel dashboards.
 
+## Key Results
+
+| Metric | Historical result |
+|---|---:|
+| Marketplace orders analyzed | **99,441** |
+| Late-delivery rate among eligible orders | **6.77% — 6,534 of 96,470 orders** |
+| Cancellation rate | **0.63%** |
+| Average approval-to-carrier processing time | **68.48 hours** |
+| Qualifying merchants in the priority cohort | **615** |
+| Top 10 priority merchants' late-delivery exposure | **1,019 late deliveries / 18.75% of cohort late deliveries** |
+
+Figures come from the [executive KPI export](outputs/tables/executive_kpis.csv) and [merchant Pareto export](outputs/tables/merchant_pareto.csv). The concentration percentage uses the qualifying merchant cohort, not the entire marketplace. These are historical findings; modeled intervention outcomes and a proposed pilot are discussed separately below.
+
 **Business question:** Where should a marketplace operations team investigate delivery delays, and which merchant interventions should it test before scaling?
 
 [Executive summary](docs/executive_summary.md) · [Methodology and reproduction](docs/methodology.md) · [Excel workbook](excel/Marketplace_Fulfillment_Intelligence.xlsx) · [SQL analysis](sql/) · [Reporting exports](outputs/tables/)
