@@ -80,6 +80,26 @@ These patterns identify where to investigate. They do not prove that merchants c
 
 ## Excel Dashboard Showcase
 
+<!-- BEGIN INTERACTIVE WEBSITE DASHBOARDS -->
+
+### Interactive website dashboards
+
+[Explore the interactive case study](https://www.siddkulkarni.com/projects/marketplace-fulfillment-intelligence)
+
+The website presents native interactive charts using prepared extracts from this project's analytical outputs. The original workbooks, saved previews, and analysis files remain available in this repository. Website filters and assumption changes do not write back to those files.
+
+| Dashboard | Website features |
+|---|---|
+| Executive Dashboard | All 25 exported months, the original Excel window, and custom date ranges; linked month selection and window KPIs calculated from matching counts and duration totals. |
+| Merchant Performance | Top-N controls, seller-state filtering, and ID/city search link merchant late-delivery volumes, rates, and detailed records. |
+| Root Cause & Pareto | Checkpoint/full-cohort Pareto views, regional and processing-band detail, and an added searchable category explorer with late-count/rate switching. |
+| Scenario Analysis | Editable late-delivery effectiveness and processing-time reductions update modeled outcomes and remain linked to the Implementation Scorecard. |
+| Implementation Scorecard | Editable per-merchant and startup costs recalculate cost-effectiveness, alongside a proposed pilot scorecard. |
+
+Date, merchant, regional, processing, and category views retain their source-supported scopes. Merchant concentration uses the qualifying cohort denominator. Intervention outcomes, implementation costs, and pilot targets are hypothetical.
+
+<!-- END INTERACTIVE WEBSITE DASHBOARDS -->
+
 ### 1. Executive Dashboard
 
 Marketplace volume, delivery reliability, processing performance, cancellations, and monthly trends.
